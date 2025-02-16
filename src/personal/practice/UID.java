@@ -1,4 +1,4 @@
-package personal.pratice;
+package personal.practice;
 
 import java.util.UUID;
 

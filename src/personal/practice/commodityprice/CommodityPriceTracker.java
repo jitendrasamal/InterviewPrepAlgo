@@ -1,4 +1,4 @@
-package personal.pratice.comodityprice;
+package personal.practice.commodityprice;
 
 import java.util.Map;
 import java.util.SortedMap;

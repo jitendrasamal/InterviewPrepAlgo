@@ -1,4 +1,4 @@
-package personal.pratice.consistenthashing;
+package personal.practice.consistenthashing;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

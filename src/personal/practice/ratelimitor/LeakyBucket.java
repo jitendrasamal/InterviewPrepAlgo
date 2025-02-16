@@ -1,4 +1,4 @@
-package personal.pratice.ratelimitor;
+package personal.practice.ratelimitor;
 
 class LeakyBucket {
     private final int bucketCapacity; // Maximum burst size

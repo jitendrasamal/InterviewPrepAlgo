@@ -1,4 +1,4 @@
-package personal.pratice.ratelimitor;
+package personal.practice.ratelimitor;
 
 import java.util.concurrent.ConcurrentLinkedDeque;
 
