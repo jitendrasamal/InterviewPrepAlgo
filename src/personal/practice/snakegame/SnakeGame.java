@@ -86,6 +86,16 @@ class SnakeGame {
         snakePositionsSet.add(p);
     }
 
+    public static void main(String[] args) {
+        SnakeGame snakeGame = new SnakeGame(3, 2, new int[][]{{1, 2}, {0, 1}});
+        System.out.println(snakeGame.move("R")); // 0
+        System.out.println(snakeGame.move("D")); // 0
+        System.out.println(snakeGame.move("R")); // 1
+        System.out.println(snakeGame.move("U")); // 1
+        System.out.println(snakeGame.move("L")); // 2
+        System.out.println(snakeGame.move("U")); // -1
+    }
+
     private static class Position {
         int row;
         int col;
