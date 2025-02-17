@@ -29,7 +29,7 @@ class SnakeGame {
         if (isOutOfBound(newHead)) {
             return -1;
         }
-        boolean isFood = isFoodInPos(newHead);
+        boolean isFood = isFoodAt(newHead);
         if (!isFood) {
             removeTail();
         } else {
@@ -67,7 +67,7 @@ class SnakeGame {
         return p.col < 0 || p.row < 0 || p.row >= height || p.col >= width;
     }
 
-    private boolean isFoodInPos(Position p) {
+    private boolean isFoodAt(Position p) {
         return foodEatenCount < food.length && p.row == food[foodEatenCount][0] && p.col == food[foodEatenCount][1];
     }
 
