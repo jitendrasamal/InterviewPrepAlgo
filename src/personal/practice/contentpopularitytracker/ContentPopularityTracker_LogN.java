@@ -1,7 +1,5 @@
 package personal.practice.contentpopularitytracker;
 
-import javafx.collections.transformation.SortedList;
-
 import java.util.*;
 
 public class ContentPopularityTracker_LogN {
