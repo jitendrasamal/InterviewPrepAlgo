@@ -24,6 +24,16 @@ class SnakeGame {
         snakePositionList.add(new Position(0, 0));
     }
 
+    public static void main(String[] args) {
+        SnakeGame snakeGame = new SnakeGame(3, 2, new int[][]{{1, 2}, {0, 1}});
+        System.out.println(snakeGame.move("R")); // 0
+        System.out.println(snakeGame.move("D")); // 0
+        System.out.println(snakeGame.move("R")); // 1
+        System.out.println(snakeGame.move("U")); // 1
+        System.out.println(snakeGame.move("L")); // 2
+        System.out.println(snakeGame.move("U")); // -1
+    }
+
     public int move(String direction) {
         Position newHead = getNewHeadPosition(direction);
         if (isOutOfBound(newHead)) {
@@ -84,16 +94,6 @@ class SnakeGame {
     private void addHead(Position p) {
         snakePositionList.addFirst(p);
         snakePositionsSet.add(p);
-    }
-
-    public static void main(String[] args) {
-        SnakeGame snakeGame = new SnakeGame(3, 2, new int[][]{{1, 2}, {0, 1}});
-        System.out.println(snakeGame.move("R")); // 0
-        System.out.println(snakeGame.move("D")); // 0
-        System.out.println(snakeGame.move("R")); // 1
-        System.out.println(snakeGame.move("U")); // 1
-        System.out.println(snakeGame.move("L")); // 2
-        System.out.println(snakeGame.move("U")); // -1
     }
 
     private static class Position {
