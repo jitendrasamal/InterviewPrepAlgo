@@ -1,4 +1,4 @@
-package personal.practice.ratelimitor;
+package personal.practice.ratelimiter;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
