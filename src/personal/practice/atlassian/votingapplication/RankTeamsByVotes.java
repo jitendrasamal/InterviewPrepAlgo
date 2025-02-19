@@ -1,4 +1,4 @@
-package personal.practice.votingapplication;
+package personal.practice.atlassian.votingapplication;
 
 
 import java.util.*;

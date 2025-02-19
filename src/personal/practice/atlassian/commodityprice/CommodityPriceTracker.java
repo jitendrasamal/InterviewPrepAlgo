@@ -1,4 +1,4 @@
-package personal.practice.commodityprice;
+package personal.practice.atlassian.commodityprice;
 
 import java.util.Map;
 import java.util.SortedMap;

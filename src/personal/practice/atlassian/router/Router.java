@@ -1,4 +1,4 @@
-package personal.practice.router;
+package personal.practice.atlassian.router;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package personal.practice.costexplorer;
+package personal.practice.atlassian.costexplorer;
 
 class Plan {
     private String planId;

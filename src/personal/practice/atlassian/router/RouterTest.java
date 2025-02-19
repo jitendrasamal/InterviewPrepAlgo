@@ -1,4 +1,4 @@
-package personal.practice.router;
+package personal.practice.atlassian.router;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

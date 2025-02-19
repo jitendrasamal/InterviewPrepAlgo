@@ -1,4 +1,4 @@
-package personal.practice.collectionoffiles;
+package personal.practice.atlassian.collectionoffiles;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package personal.practice.ratelimiter;
+package personal.practice.atlassian.ratelimiter;
 
 import java.util.concurrent.atomic.AtomicLong;
 

@@ -1,4 +1,4 @@
-package personal.practice.costexplorer;
+package personal.practice.atlassian.costexplorer;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -15,7 +15,7 @@ class CostExplorer {
     }
 
     public double annualCost(CustomerSubscription subscription, int year) {
-        return monthlyCostList(subscription, year).stream().mapToDouble(Double::doubleValue).sum();
+      return monthlyCostList(subscription, year).stream().mapToDouble(Double::doubleValue).sum();
     }
 
     public List<Double> monthlyCostList(CustomerSubscription subscription, int year) {

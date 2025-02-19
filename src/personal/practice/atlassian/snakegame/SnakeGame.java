@@ -1,4 +1,4 @@
-package personal.practice.snakegame;
+package personal.practice.atlassian.snakegame;
 
 import java.util.HashSet;
 import java.util.LinkedList;

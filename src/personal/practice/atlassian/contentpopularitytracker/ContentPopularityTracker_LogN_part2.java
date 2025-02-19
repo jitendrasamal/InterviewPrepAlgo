@@ -1,4 +1,4 @@
-package personal.practice.contentpopularitytracker;
+package personal.practice.atlassian.contentpopularitytracker;
 
 import java.util.HashMap;
 import java.util.HashSet;

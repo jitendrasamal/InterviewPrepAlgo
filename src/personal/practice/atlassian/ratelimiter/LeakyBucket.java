@@ -1,4 +1,4 @@
-package personal.practice.ratelimiter;
+package personal.practice.atlassian.ratelimiter;
 
 class LeakyBucket {
     private final int bucketCapacity; // Maximum burst size
