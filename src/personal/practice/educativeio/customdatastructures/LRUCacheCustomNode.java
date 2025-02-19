@@ -4,17 +4,17 @@ import java.util.HashMap;
 
 public class LRUCacheCustomNode {
 
-    ListNode head;
-    ListNode tail;
+    ListNode dummyHead;
+    ListNode dummyTail;
     HashMap<Integer, ListNode> keyToNode;
     int capacity;
 
     public LRUCacheCustomNode(int capacity) {
         keyToNode = new HashMap<>(capacity + 1);
-        head = new ListNode(-1, -1);
-        tail = new ListNode(-1, -1);
-        head.next = tail;
-        tail.prev = head;
+        dummyHead = new ListNode(-1, -1);
+        dummyTail = new ListNode(-1, -1);
+        dummyHead.next = dummyTail;
+        dummyTail.prev = dummyHead;
         this.capacity = capacity;
     }
 
@@ -47,8 +47,8 @@ public class LRUCacheCustomNode {
             ListNode node = new ListNode(key, value);
             addNodeToHead(node);
             keyToNode.put(key, node);
-            if (keyToNode.size() > capacity && tail.prev != head) {
-                removeLastUsed();
+            if (keyToNode.size() > capacity && dummyTail.prev != dummyHead) {
+                removeLeastUsed();
             }
         }
     }
@@ -70,15 +70,15 @@ public class LRUCacheCustomNode {
     }
 
     private void addNodeToHead(ListNode node) {
-        ListNode next = head.next;
+        ListNode next = dummyHead.next;
         next.prev = node;
         node.next = next;
-        node.prev = head;
-        head.next = node;
+        node.prev = dummyHead;
+        dummyHead.next = node;
     }
 
-    private void removeLastUsed() {
-        ListNode node = tail.prev;
+    private void removeLeastUsed() {
+        ListNode node = dummyTail.prev;
         removeNode(node);
         keyToNode.remove(node.key);
     }
