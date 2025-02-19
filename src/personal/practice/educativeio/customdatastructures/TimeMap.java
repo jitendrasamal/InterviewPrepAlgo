@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
+//https://leetcode.com/problems/time-based-key-value-store/description/
+//https://www.educative.io/courses/grokking-coding-interview/time-based-key-value-store
 class TimeMap {
 
     HashMap<String, TreeMap<Integer, String>> keyVsTimeSeriesValues;
