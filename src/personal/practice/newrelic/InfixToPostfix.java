@@ -41,8 +41,8 @@ public class InfixToPostfix {
 
             // If an operator is scanned
             else {
-                while (!st.isEmpty() && (prec(c) < prec(st.peek()) ||
-                        prec(c) == prec(st.peek()))) {
+                while (!st.isEmpty() && (precedence(c) < precedence(st.peek()) ||
+                        precedence(c) == precedence(st.peek()))) {
                     result.append(st.pop());
                 }
                 st.push(c);
@@ -54,11 +54,11 @@ public class InfixToPostfix {
             result.append(st.pop());
         }
 
-        System.out.println(result.toString());
+        System.out.println(result);
     }
 
     // Function to return precedence of operators
-    int prec(char c) {
+    int precedence(char c) {
         if (c == '^')
             return 3;
         else if (c == '/' || c == '*')
