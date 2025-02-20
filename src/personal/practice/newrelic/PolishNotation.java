@@ -6,9 +6,9 @@ import java.util.Stack;
 public class PolishNotation {
 
     public static void main(String[] args) {
-        PolishNotation gfg = new PolishNotation();
+        PolishNotation polishNotation = new PolishNotation();
         String exp = "a+b*(c^d-e)^(f+g*h)-i";
-        gfg.infixToPostfix(exp);
+        polishNotation.infixToPostfix(exp);
     }
 
     // Function to perform infix to postfix conversion
