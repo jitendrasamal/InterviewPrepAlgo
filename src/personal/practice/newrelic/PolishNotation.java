@@ -3,10 +3,10 @@ package personal.practice.newrelic;
 
 import java.util.Stack;
 
-public class InfixToPostfix {
+public class PolishNotation {
 
     public static void main(String[] args) {
-        InfixToPostfix gfg = new InfixToPostfix();
+        PolishNotation gfg = new PolishNotation();
         String exp = "a+b*(c^d-e)^(f+g*h)-i";
         gfg.infixToPostfix(exp);
     }
