@@ -4,8 +4,9 @@ import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+//https://leetcode.com/discuss/interview-question/5994275/Atalassian-or-SDE2-or-Reject/
+
 /**
- * https://leetcode.com/discuss/interview-question/5994275/Atalassian-or-SDE2-or-Reject/
  * given a list of timestamps and commodity prices, find out highest commodity price at given timestamp. timestamps
  * are not necessarily in sorted order, there can be multiple entries for a timestamp as well.
  * follow up - after each timestamp, commodity price entry, we are putting a checkpoint, given a timestamp and
