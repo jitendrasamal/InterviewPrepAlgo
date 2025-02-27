@@ -1,4 +1,4 @@
-package interview.digitalocean;
+package interview.test;
 
 public class Test {
 
