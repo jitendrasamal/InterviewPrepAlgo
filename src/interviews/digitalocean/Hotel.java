@@ -1,4 +1,4 @@
-package interview.digitalocean;
+package interviews.digitalocean;
 
 import java.util.ArrayList;
 import java.util.HashMap;
