@@ -11,7 +11,20 @@ public class RepeatedDNASequences {
     public static void main(String[] args) {
         RepeatedDNASequences repeatedDNASequences = new RepeatedDNASequences();
         System.out.println(repeatedDNASequences.findRepeatedSequences_UsingString("CGG", 1));
+        System.out.println(repeatedDNASequences.findRepeatedSequences_rollingWindow("CGG", 1));
+
         System.out.println(repeatedDNASequences.findRepeatedSequences_UsingString("AAAAACCCCCAAAAACCCCCC", 8));
+        System.out.println(repeatedDNASequences.findRepeatedSequences_rollingWindow("AAAAACCCCCAAAAACCCCCC", 8));
+
+        System.out.println(repeatedDNASequences.findRepeatedSequences_UsingString("AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT",
+                10));
+        System.out.println(repeatedDNASequences.findRepeatedSequences_rollingWindow("AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"
+                , 10));
+    }
+
+    public Set<String> findRepeatedSequences_slidingWindowWithBitMasking(String dna, int k) {
+        //TODO
+        return  null;
     }
 
     public Set<String> findRepeatedSequences_UsingString(String dna, int k) {
@@ -31,6 +44,44 @@ public class RepeatedDNASequences {
             }
         }
 
+        return result;
+    }
+
+    public Set<String> findRepeatedSequences_rollingWindow(String dna, int k) {
+        Set<String> result = new HashSet<String>();
+        if (dna.length() < k)
+            return result;
+
+        Map<Character, Integer> charToInt = new HashMap<>() {{
+            put('A', 0);
+            put('C', 1);
+            put('G', 2);
+            put('T', 3);
+        }};
+
+        int hash = 0;
+        int base = 4;
+        int lastDigitPow = (int) Math.pow(base, k - 1);
+        Set<Integer> seen = new HashSet<>();
+        int index = 0;
+        for (; index < k; index++) {
+            int num = charToInt.get(dna.charAt(index));
+            hash *= base;
+            hash += num;
+        }
+        seen.add(hash);
+        for (; index < dna.length(); index++) {
+            int last = charToInt.get(dna.charAt(index - k));
+            hash -= (last * lastDigitPow);
+            hash *= base;
+            hash += charToInt.get(dna.charAt(index));
+            if (seen.contains(hash)) {
+                result.add(dna.substring(index - k + 1, index + 1));
+            } else {
+                seen.add(hash);
+            }
+
+        }
         return result;
     }
 }
