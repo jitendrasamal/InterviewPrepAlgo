@@ -34,17 +34,17 @@ public class CircularArrayLoop {
             int fp = index;
             while (true) {
                 visitedIndices.add(sp);
-                boolean isForward = nums[sp] >= 0;
+                boolean isForwardDirection = nums[sp] >= 0;
                 int newSP = getNextIndex(nums, sp);
-                if (isNotCycle(nums, isForward, sp, newSP))
+                if (isNotCycle(nums, isForwardDirection, sp, newSP))
                     break;
                 sp = newSP;
                 int newFP = getNextIndex(nums, fp);
-                if (isNotCycle(nums, isForward, fp, newFP))
+                if (isNotCycle(nums, isForwardDirection, fp, newFP))
                     break;
                 fp = newFP;
                 newFP = getNextIndex(nums, fp);
-                if (isNotCycle(nums, isForward, fp, newFP))
+                if (isNotCycle(nums, isForwardDirection, fp, newFP))
                     break;
                 fp = newFP;
                 if (fp == sp)
@@ -63,8 +63,8 @@ public class CircularArrayLoop {
         return newIndex;
     }
 
-    public static boolean isNotCycle(int nums[], boolean isPrevForward, int prevIndex, int newIndex) {
-        boolean isForward = nums[newIndex] >= 0;
-        return isPrevForward != isForward || prevIndex == newIndex;
+    public static boolean isNotCycle(int nums[], boolean isPrevForwardDirection, int prevIndex, int newIndex) {
+        boolean isForwardDirection = nums[newIndex] >= 0;
+        return isPrevForwardDirection != isForwardDirection || prevIndex == newIndex;
     }
 }
