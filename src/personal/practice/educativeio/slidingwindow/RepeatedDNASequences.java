@@ -12,19 +12,20 @@ public class RepeatedDNASequences {
         RepeatedDNASequences repeatedDNASequences = new RepeatedDNASequences();
         System.out.println(repeatedDNASequences.findRepeatedSequences_UsingString("CGG", 1));
         System.out.println(repeatedDNASequences.findRepeatedSequences_rollingWindow("CGG", 1));
+        System.out.println(repeatedDNASequences.findRepeatedSequences_slidingWindowWithBitMasking("CGG", 1));
 
         System.out.println(repeatedDNASequences.findRepeatedSequences_UsingString("AAAAACCCCCAAAAACCCCCC", 8));
         System.out.println(repeatedDNASequences.findRepeatedSequences_rollingWindow("AAAAACCCCCAAAAACCCCCC", 8));
+        System.out.println(repeatedDNASequences.findRepeatedSequences_slidingWindowWithBitMasking(
+                "AAAAACCCCCAAAAACCCCCC", 8));
 
         System.out.println(repeatedDNASequences.findRepeatedSequences_UsingString("AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT",
                 10));
         System.out.println(repeatedDNASequences.findRepeatedSequences_rollingWindow("AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"
                 , 10));
-    }
-
-    public Set<String> findRepeatedSequences_slidingWindowWithBitMasking(String dna, int k) {
-        //TODO
-        return  null;
+        System.out.println(repeatedDNASequences.findRepeatedSequences_slidingWindowWithBitMasking(
+                "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"
+                , 10));
     }
 
     public Set<String> findRepeatedSequences_UsingString(String dna, int k) {
@@ -81,6 +82,40 @@ public class RepeatedDNASequences {
                 seen.add(hash);
             }
 
+        }
+        return result;
+    }
+
+    public Set<String> findRepeatedSequences_slidingWindowWithBitMasking(String dna, int k) {
+        Set<String> result = new HashSet<String>();
+        if (dna.length() < k)
+            return result;
+        Map<Character, Integer> charToInt = new HashMap<>() {{
+            put('A', 0);
+            put('C', 1);
+            put('G', 2);
+            put('T', 3);
+        }};
+        int hash = 0;
+        Set<Integer> seen = new HashSet<>();
+        int index = 0;
+        for (; index < k; index++) {
+            int num = charToInt.get(dna.charAt(index));
+            hash <<= 2;
+            hash |= num;
+        }
+        seen.add(hash);
+        int bitmask = ~(3 << 2 * k);
+        for (; index < dna.length(); ++index) {
+            int num = charToInt.get(dna.charAt(index));
+            hash <<= 2;
+            hash |= num;
+            hash &= bitmask;
+            if (seen.contains(hash)) {
+                result.add(dna.substring(index - k + 1, index + 1));
+            } else {
+                seen.add(hash);
+            }
         }
         return result;
     }
