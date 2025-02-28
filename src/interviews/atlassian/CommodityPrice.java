@@ -8,6 +8,8 @@ The timestamps in the stream can be out of order, or there can be duplicate time
 commodityPrice at that particular timestamp if an entry for the timestamp already exists.
 Create an in-memory solution tailored to prioritize frequent reads and writes for the given problem statement.
 
+phase2- for each add and delete we create check points, expand the logic to give the max value at given checkpoint
+
 (4, 27)
 (6, 26)
 (9, 25)
@@ -21,6 +23,7 @@ import java.util.*;
 public class CommodityPrice {
     Map<Integer, Integer> timeToPrice = new HashMap<>();
     SortedMap<Integer, Set<Integer>> priceToTime = new TreeMap<>();
+
     Map<Integer, Integer> checkPointMaxValue = new HashMap<>();
     int maxCheckpoint = 0;
 
